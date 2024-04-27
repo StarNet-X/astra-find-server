@@ -28,20 +28,16 @@
 
 3. 运行
 
-  3.1. 需要先安装所需的库
-
-  ```bash
+  1. 需要先安装所需的库 ```bash
   npm install socket.io
   npm install express
   ```
 
-  3.2. 完成后运行
-
-  ```bash
+  2. 完成后运行 ```bash
   node main.js [port]
   ```
 
-  3.3. 打开对应的网页即可(一般本地为 localhost:[port])
+  3. 打开对应的网页即可(一般本地为 localhost:[port])
 
 测试阶段，欢迎提问/反馈
 
