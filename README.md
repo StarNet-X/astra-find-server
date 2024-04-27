@@ -22,32 +22,41 @@
 
 ### 怎么使用？
 
-1. 安装 Node.js
+1. [下载/安装 Node.js](https://nodejs.cn/download/)
 
 2. Clone 本库或者下载源代码
 
-安装所需要的第三方库(详见 Credits)
+3. 运行
 
-3. 运行 node main.js
+  需要先安装所需的库
 
-默认端口为 8080， 运行 node main.js [port] 以设定
+  ```bash
+  npm install socket.io
+  npm install express
+  ```
 
-运行后打开 localhost:[网页] 即可
+  完成后运行
 
-备注：
+  ```bash
+  node main.js [port]
+  ```
 
-若部署在其他设备上的，访问该设备网页即可
+  运行后打开 `[设备地址]:[端口]` 即可
 
-测试阶段，有任何问题欢迎在 Issues 中提出
+测试阶段，欢迎提问/反馈
 
-### Credits
+### 鸣谢
 
-©2023-2024 StarNet.X 转载请注明本库链接
+本项目基于原 Python 扫描服务器列表 修改制作，作者不明，仍作感谢
 
-本项目基于原 Python 扫描服务器列表 修改制作，作者不明，若发现本项目，请联系我们 :)
-
-使用的第三方 Node.js 库:
+第三方 Node.js 库:
 
 * Socket.io
 
 * express
+
+### 许可
+
+本项目使用 MIT License 开源
+
+©2023-2024 StarNet.X
