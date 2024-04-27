@@ -46,13 +46,13 @@
 
 ### 鸣谢
 
-本项目基于原 Python 扫描服务器列表 修改制作，作者不明，仍作感谢
+实现原理参考 Python 扫描服务器列表 修改制作，但作者不明，仍作感谢
 
 第三方 Node.js 库:
 
-* Socket.io
+* [Socket.io](https://github.com/socketio/socket.io)
 
-* express
+* [express](https://github.com/expressjs/express)
 
 ### 许可
 
