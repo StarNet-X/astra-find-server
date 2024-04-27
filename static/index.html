@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<!--
+    ©2024 满月叶
+    Github: MoonLeeeaf
+    基于原 Python 代码进行定制
+-->
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+    <meta name="renderer" content="webkit">
+    <title>MC Server Scanner</title>
+    <script src="https://unpkg.com/jquery@3.7.1/dist/jquery.min.js"></script>
+    <script src="https://unpkg.com/socket.io-client@4.7.5/dist/socket.io.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/mdui@1.0.2/dist/css/mdui.min.css">
+    <script src="https://unpkg.com/downloadjs@1.4.7/download.min.js"></script>
+</head>
+
+<body class="mdui-theme-layout-dark mdui-theme-primary-teal mdui-theme-accent-teal">
+    <!-- 妈的 前端开发最讨厌私人滚动条 每次都是这样 浪费我时间 -->
+    <div style="width: 100%;position: fixed;top: 0;left: 0;background-color: #212121;"
+        class="mdui-appbar-fixed mdui-appbar">
+        <div style="display: flex;justify-content: flex-start;">
+            <div class="mdui-textfield mdui-textfield-floating-label" style="margin-left: 10px;">
+                <label class="mdui-textfield-label">服务器地址</label>
+                <input class="mdui-textfield-input" type="text" id="server" />
+            </div>
+            <div class="mdui-textfield mdui-textfield-floating-label" style="margin-left: 10px;margin-right: 10px;">
+                <label class="mdui-textfield-label">线程数量</label>
+                <input class="mdui-textfield-input" type="text" id="threads" value="256" />
+            </div>
+            <div class="mdui-textfield mdui-textfield-floating-label">
+                <label class="mdui-textfield-label">扫描延迟</label>
+                <input class="mdui-textfield-input" type="text" id="wait" value="150" />
+            </div>
+            <button class="mdui-btn mdui-color-theme-accent mdui-ripple mdui-color-theme-accent" id="scan"
+                style="align-self: center;margin-left: 10px;">开始扫描</button>
+            <button class="mdui-btn mdui-color-theme-accent mdui-ripple mdui-color-theme-accent" id="stop"
+                style="align-self: center;margin-left: 10px;">终止任务</button>
+            <button class="mdui-btn mdui-color-theme-accent mdui-ripple mdui-color-theme-accent" id="down"
+                style="align-self: center;margin-left: 10px;">下载结果</button>
+        </div>
+        <br />
+        <div class="mdui-progress">
+            <div class="mdui-progress-determinate" id="pgr"></div>
+        </div>
+    </div>
+    <br /><br /><br /><br /><br /><br /><br />
+    <ul id="list-port">
+    </ul>
+    <script type="text/javascript">
+        String.prototype.replaceAll = function (s1, s2) {
+            return this.replace(new RegExp(s1, "gm"), s2)
+        }
+
+        const server = io()
+        const ls = $("#list-port")
+        let down = []
+        let i = 0
+
+        server.on("result", (data) => {
+            console.log(data)
+
+            i++
+
+            update(i / 65535)
+
+            if (!(data instanceof Object))
+                return
+
+            down.push(data)
+            data = "地址: " + data._scanner.server + ":" + data._scanner.port + "<br/><br/>版本: " + data.version.name + "(" + data.version.protocol + ")" + "<br/><br/>描述: " + JSON.stringify(data.description) + (data.forgeData == null ? "" : "<br/><br/><a class='mdui-text-color-theme' onclick='mdui.alert(`" + JSON.stringify(data.forgeData.mods).replaceAll("OHNOES😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱", "未知") + "`)'>查看 Forge Mod 列表</a>") + (data.modinfo == null ? "" : "<br/><br/><a class='mdui-text-color-theme' onclick='mdui.alert(`" + JSON.stringify(data.modinfo.modList).replaceAll("OHNOES😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱😱", "未知") + "`)'>查看 Forge Mod 列表</a>") + "<br/><br/><a class='mdui-text-color-theme' onclick='mdui.alert(`" + JSON.stringify(data) + "`)'>查看原始数据</a><br/><br/><br/><br/>"
+            $($.parseHTML("<li>" + data + "</li>")).appendTo(ls)
+        })
+
+        function update(pg) {
+            $("#pgr").css("width", pg * 100 + "%")
+        }
+
+        async function scan() {
+            let s = $("#server").val()
+            let w = $("#wait").val()
+            let t = $("#threads").val()
+            ls.empty()
+            down = []
+            i = 0
+            update(0)
+
+            server.emit("scan", s, w.trim() == "" ? null : parseInt(w), parseInt(t))
+            mdui.snackbar("已开始提交任务")
+        }
+        $("#scan").click(() => scan())
+        $("#stop").click(() => server.emit("stop"))
+        $("#down").click(() => {
+            server.emit("save", $("#server").val(), down)
+
+            let d = new Date()
+            let fileName = $("#server").val() + "_scan-" + d.getFullYear() + d.getMonth() + d.getDay() + "-" + d.getHours() + d.getMinutes() + d.getSeconds() + ".json"
+            download(JSON.stringify(down), fileName, "application/json")
+        })
+    </script>
+    <script src="https://unpkg.com/mdui@1.0.2/dist/js/mdui.min.js"></script>
+</body>
+
+</html>
