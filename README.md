@@ -28,12 +28,14 @@
 
 3. 运行
 
-  1. 需要先安装所需的库 ```bash
+  1. 需要先安装所需的库
+  ```bash
   npm install socket.io
   npm install express
   ```
 
-  2. 完成后运行 ```bash
+  2. 完成后运行下面的命令
+  ```bash
   node main.js [port]
   ```
 
