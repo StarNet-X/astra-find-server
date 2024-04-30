@@ -30,9 +30,12 @@ Astra Find Server 是一个用 Node.js 编写的 Minecraft Java 服务器的端�
 
 测试阶段，欢迎提问/反馈
 
+> [!WARNING]
+> 网页端进行操作时完全不会验证用户，因此不建议直接暴露在公网进行使用，以免出现不必要的问题！
+
 ### 鸣谢
 
-获取服务器信息 2.1.4
+获取服务器信息 2.1.4 (本项目的核心代码正是来自这个项目哦, 欢迎给原作者一个 Star)
 * [视频介绍](https://www.bilibili.com/video/BV1tm4y1P7r1/)
 * [新版仓库链接](https://github.com/hite4044/Minecraft-Server-Ports-Scanner-GUI)
 
