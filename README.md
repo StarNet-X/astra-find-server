@@ -1,9 +1,8 @@
 ## Astra Find Server
 
 ### 这是什么？
-> 在一个人游玩 Minecraft 时你是否会感觉到孤独？在你好友都不在线的时候你会不会孤独？
->  
-> 没错！Astra Find Server，一个用 Node.js 编写的 Minecraft Java版服务器的扫描器，将会为您寻找某服务器中所有的 Minecraft 服务器！你可以使用它去寻找朋友，或者与陌生人游玩。
+
+Astra Find Server 是一个用 Node.js 编写的 Minecraft Java 服务器的端口扫描仪，将会为您寻找某地址中所有端口存在的服务器！你可以使用它去寻找朋友，或者与陌生人游玩，亦或者测试你的服务器安全性~
 
 > [!IMPORTANT]
 > **免责声明:本项目仅做学习使用, 因本项目导致的任何问题项目团队组不承担任何责任！**
