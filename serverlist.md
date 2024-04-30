@@ -27,7 +27,7 @@ const ls = [
 'magicmc.cn',
 'mc.163mc.cn',
 'mc.ariacraft.net',
- 'mc.kilor.cn',
+'mc.kilor.cn',
 'mc.remiaft.com',
 'mc20.rhymc.com',
 'mc3.rhymc.com',
