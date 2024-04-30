@@ -5,28 +5,8 @@
 >  
 > 没错！Astra Find Server，一个用 Node.js 编写的 Minecraft Java版服务器的扫描器，将会为您寻找某服务器中所有的 Minecraft 服务器！你可以使用它去寻找朋友，或者与陌生人游玩。
 
-**免责声明:因本项目造成他人服务器的一切问题本团队及本项目编写者均不承担任何责任**
-
-### 我没服玩！
-
-> 不用担心！可以看看下面的列表
-
-<details>
-
-**欢迎各位通过 Issue 提交服务器地址哦**
-
-地址等级: 
-* A  非常容易封IP
-* B+ 容易封IP
-* B  比较容易封IP
-* C+ 可能会封IP
-* C  不会封IP 
-
-| 名称 | IP地址 | 等级 |
-| :-----| ----: | :----: |
-| 简幻欢 | play.simpfun.cn | B+ |
-
-</details>
+> [!IMPORTANT]
+> **免责声明:本项目仅做学习使用, 因本项目导致的任何问题项目团队组不承担任何责任！**
 
 ### 怎么使用？
 
@@ -53,7 +33,9 @@
 
 ### 鸣谢
 
-实现原理参考 Python 扫描服务器列表 修改制作，但作者不明，仍作感谢
+获取服务器信息 2.1.4
+* [视频介绍](https://www.bilibili.com/video/BV1tm4y1P7r1/)
+* [新版仓库链接](https://github.com/hite4044/Minecraft-Server-Ports-Scanner-GUI)
 
 第三方 Node.js 库:
 
