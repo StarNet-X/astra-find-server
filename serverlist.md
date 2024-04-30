@@ -11,7 +11,7 @@ const ls = [
 "cn-hk-bgp-4.openfrp.top",  # 191.96.240.164
 "ganzhou-eb7c59a5.of-7af93c01.shop",
 "cn-he-plc-2.of-7af93c01.shop",
- "cn-bj-plc-2.of-7af93c01.shop",
+"cn-bj-plc-2.of-7af93c01.shop",
 "shenzhen-a8bf9282.of-7af93c01.shop",
 "ipyingshe.com",  # 111.45.28.82
 "xiaomy.net",  # 112.16.229.54
