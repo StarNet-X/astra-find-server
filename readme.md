@@ -31,10 +31,16 @@ Astra Find Server 是一个用 Node.js 编写的 Minecraft Java 服务器的端�
 
   * 打开对应的网页即可(一般本地为 localhost:[port])
 
-测试阶段，欢迎提问/反馈
+网页端截图:
+
+![](.github/screenshot.png)
+
+> [!TIP]
+> 你可以在[这里](serverlist.md)去寻找一些预设的服务器，当然，请不要故意破坏他们
 
 > [!WARNING]
 > 网页端进行操作时不会验证用户行为，因此不建议直接暴露在公网进行使用，以免出现不必要的问题！
+> 本项目的Bug很多，欢迎各位积极反馈
 
 ### 鸣谢
 
